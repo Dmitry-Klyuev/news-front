@@ -13,7 +13,7 @@
 .related-small-article-link{
     text-decoration: none;
     display: block;
-    gap: 15px;
+    margin-top: 15px;
 }
 
 .related-small-article__image {

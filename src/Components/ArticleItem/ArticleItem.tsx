@@ -4,7 +4,7 @@ import { RelatedSmallArticle } from '../RelatedSmallArticle/RelatedSmallArticle'
 import { SingleLineTitleArticle } from '../SingleLineTitleArticle/SingleLineTitleArticle';
 import { IArticle, IArticleItemAPI, Source, Category } from '../../types';
 import { beautifyDate } from '../../utils';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 interface IProps {
   categories: Category[];
@@ -14,8 +14,7 @@ interface IProps {
 export const ArticleItem: FC<IProps> = ({ categories, sources }) => {
   const [articleItem, setArticleItem] = React.useState<IArticleItemAPI | null>(null);
   const [relatedArticles, setRelatedArticles] = React.useState<IArticle[] | null>(null);
-  const lacation = useLocation();
-  const id = location.pathname.replace('/article/', '');
+  const { id } = useParams();
   React.useEffect(() => {
     fetch(`https://frontend.karpovcourses.net/api/v2/news/full/${id}`)
       .then((response) => response.json())
@@ -26,7 +25,7 @@ export const ArticleItem: FC<IProps> = ({ categories, sources }) => {
       .then((response) => {
         setRelatedArticles(response.items);
       });
-  }, []);
+  }, [id]);
 
   if (articleItem === null || relatedArticles === null) {
     return null;

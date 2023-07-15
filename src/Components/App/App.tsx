@@ -15,8 +15,7 @@ export const App = () => {
     categories: [],
     sources: [],
   });
-  console.log(articles);
-  const lacation = useLocation();
+  const location = useLocation();
   React.useEffect(() => {
     //@ts-ignore
     const categoryId: string = categoryIds[category];
@@ -33,11 +32,12 @@ export const App = () => {
           setArticles(filteredItems);
         });
     }
-  }, [category, lacation]);
+    window.scrollTo(0, 0);
+  }, [category, location]);
 
   useEffect(() => {
     setCategory(location.pathname.slice(1));
-  }, [lacation]);
+  }, [location]);
   return (
     <>
       <Header category={category} />
