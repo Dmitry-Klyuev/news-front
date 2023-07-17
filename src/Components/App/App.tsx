@@ -1,12 +1,12 @@
 import { Articles } from '../Articles/Articles';
-import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
 import React, { useEffect } from 'react';
 import { categoryIds } from '../../utils';
 import '../../style.css';
 import { ArticleItem } from '../ArticleItem/ArticleItem';
 import { INewsAPI } from '../../types';
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import { Admin } from '../Admin/Admin';
+import { PageLayout } from '../PageLayout/PageLayout';
 
 export const App = () => {
   const [category, setCategory] = React.useState<string>('index');
@@ -40,17 +40,58 @@ export const App = () => {
   }, [location]);
   return (
     <>
-      <Header category={category} />
       <Routes>
         <Route path={'/'} element={<Navigate to="index" />} />
-        <Route path={'/index'} element={<Articles articles={articles} />} />
-        <Route path={'/article/:id'} element={<ArticleItem categories={articles.categories} sources={articles.sources} />} />
-        <Route path={'fashion'} element={<Articles articles={articles} />} />
-        <Route path={'technologies'} element={<Articles articles={articles} />} />
-        <Route path={'sport'} element={<Articles articles={articles} />} />
-        <Route path={'other'} element={<Articles articles={articles} />} />
+        <Route
+          path={'/index'}
+          element={
+            <PageLayout category={category}>
+              <Articles articles={articles} />
+            </PageLayout>
+          }
+        />
+        <Route
+          path={'/article/:id'}
+          element={
+            <PageLayout category={category}>
+              <ArticleItem categories={articles.categories} sources={articles.sources} />
+            </PageLayout>
+          }
+        />
+        <Route
+          path={'fashion'}
+          element={
+            <PageLayout category={category}>
+              <Articles articles={articles} />{' '}
+            </PageLayout>
+          }
+        />
+        <Route
+          path={'technologies'}
+          element={
+            <PageLayout category={category}>
+              <Articles articles={articles} />
+            </PageLayout>
+          }
+        />
+        <Route
+          path={'sport'}
+          element={
+            <PageLayout category={category}>
+              <Articles articles={articles} />
+            </PageLayout>
+          }
+        />
+        <Route
+          path={'other'}
+          element={
+            <PageLayout category={category}>
+              <Articles articles={articles} />
+            </PageLayout>
+          }
+        />
+        <Route path={'admin'} element={<Admin />} />
       </Routes>
-      <Footer category={category} />
     </>
   );
 };

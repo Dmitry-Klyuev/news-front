@@ -4,7 +4,7 @@ import { RelatedSmallArticle } from '../RelatedSmallArticle/RelatedSmallArticle'
 import { SingleLineTitleArticle } from '../SingleLineTitleArticle/SingleLineTitleArticle';
 import { IArticle, IArticleItemAPI, Source, Category } from '../../types';
 import { beautifyDate } from '../../utils';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 interface IProps {
   categories: Category[];
