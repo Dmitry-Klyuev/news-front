@@ -50,12 +50,15 @@ export const Admin: FC = () => {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        <Grid container spacing={4}>
+        <Typography variant="h4" gutterBottom>
+          Партнерский материал
+        </Typography>
+        <Grid container spacing={2} columns={{ xs: 6, sm: 8, md: 12 }}>
           {[1, 2, 3, 4, 5, 6].map((el, index) => (
             <Grid item xs={3} key={index}>
               <Card>
                 <CardActionArea>
-                  <CardMedia component="img" height="140" image="/static/images/cards/contemplative-reptile.jpg" alt="green iguana" />
+                  <CardMedia component="img" height="140" image="https://mui.com/static/images/cards/paella.jpg" alt="green iguana" />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       Lizard
