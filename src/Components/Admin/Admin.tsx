@@ -12,6 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Card, CardActionArea, CardContent, CardMedia, Grid } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 const drawerWidth = 300;
 
@@ -51,11 +52,25 @@ export const Admin: FC = () => {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <Typography variant="h4" gutterBottom>
+          Сохранить статью
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <TextField fullWidth label="Заголовок" />
+            <TextField fullWidth label="Подводка" />
+            <TextField fullWidth label="Текст" />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField fullWidth label="Картинка" />
+          </Grid>
+        </Grid>
+
+        <Typography variant="h4" gutterBottom>
           Партнерский материал
         </Typography>
         <Grid container spacing={2} columns={{ xs: 6, sm: 8, md: 12 }}>
-          {[1, 2, 3, 4, 5, 6].map((el, index) => (
-            <Grid item xs={3} key={index}>
+          {[1, 2, 3, 4, 5, 6].map((el) => (
+            <Grid item xs={3} key={el}>
               <Card>
                 <CardActionArea>
                   <CardMedia component="img" height="140" image="https://mui.com/static/images/cards/paella.jpg" alt="green iguana" />
