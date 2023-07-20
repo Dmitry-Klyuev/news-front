@@ -13,6 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Card, CardActionArea, CardContent, CardMedia, Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const drawerWidth = 300;
 
@@ -54,18 +55,30 @@ export const Admin: FC = () => {
         <Typography variant="h4" gutterBottom>
           Сохранить статью
         </Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid item xs={6}>
             <TextField fullWidth label="Заголовок" />
-            <TextField fullWidth label="Подводка" />
-            <TextField fullWidth label="Текст" />
+            <TextField fullWidth label="Подводка" multiline maxRows={3} style={{ marginTop: '15px' }} />
+            <TextField fullWidth label="Текст" multiline maxRows={6} style={{ marginTop: '15px' }} />
+            <Grid container spacing={2} marginTop={2}>
+              <Grid item xs={6}>
+                <Button variant={'contained'} color={'success'}>
+                  Сохранить
+                </Button>
+              </Grid>
+              <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button variant={'contained'} color={'error'}>
+                  Удалить
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item xs={6}>
             <TextField fullWidth label="Картинка" />
           </Grid>
         </Grid>
 
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom marginTop={4}>
           Партнерский материал
         </Typography>
         <Grid container spacing={2} columns={{ xs: 6, sm: 8, md: 12 }}>
