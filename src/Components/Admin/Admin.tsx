@@ -14,10 +14,26 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Card, CardActionArea, CardContent, CardMedia, Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Stack from '@mui/material/Stack';
 
 const drawerWidth = 300;
-
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 export const Admin: FC = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -67,17 +83,36 @@ export const Admin: FC = () => {
                 </Button>
               </Grid>
               <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Button variant={'contained'} color={'error'}>
+                <Button variant={'contained'} color={'error'} onClick={handleOpen}>
                   Удалить
                 </Button>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={6}>
-            <TextField fullWidth label="Картинка" />
+            <CardMedia component="img" height="194" src={'https://mui.com/static/images/cards/paella.jpg'} />
           </Grid>
         </Grid>
-
+        <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Вы точно хотите удалить?
+              <Box
+                sx={{
+                  width: 300,
+                }}
+              ></Box>
+              <Stack spacing={{ xs: 1, sm: 2 }}>
+                <Button variant={'contained'} color={'success'} style={{ marginLeft: '2px' }}>
+                  Да
+                </Button>
+                <Button variant={'contained'} color={'error'} style={{ marginLeft: '2px' }} onClick={handleClose}>
+                  Нет
+                </Button>
+              </Stack>
+            </Typography>
+          </Box>
+        </Modal>
         <Typography variant="h4" gutterBottom marginTop={4}>
           Партнерский материал
         </Typography>
