@@ -73,9 +73,10 @@ export const Admin: FC = () => {
         </Typography>
         <Grid container spacing={4}>
           <Grid item xs={6}>
-            <TextField fullWidth label="Заголовок" />
-            <TextField fullWidth label="Подводка" multiline maxRows={3} style={{ marginTop: '15px' }} />
-            <TextField fullWidth label="Текст" multiline maxRows={6} style={{ marginTop: '15px' }} />
+            <TextField fullWidth label="Компания" />
+            <TextField fullWidth label="Заголовок" sx={{ mt: 2 }} />
+            <TextField fullWidth label="Подводка" multiline maxRows={3} sx={{ mt: 2 }} />
+            <TextField fullWidth label="Текст" multiline maxRows={6} sx={{ mt: 2 }} />
             <Grid container spacing={2} marginTop={2}>
               <Grid item xs={6}>
                 <Button variant={'contained'} color={'success'}>
@@ -91,6 +92,9 @@ export const Admin: FC = () => {
           </Grid>
           <Grid item xs={6}>
             <CardMedia component="img" height="194" src={'https://mui.com/static/images/cards/paella.jpg'} />
+            <CardContent>
+              <input type="file" />
+            </CardContent>
           </Grid>
         </Grid>
         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
