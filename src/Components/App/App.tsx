@@ -5,8 +5,10 @@ import '../../style.css';
 import { ArticleItem } from '../ArticleItem/ArticleItem';
 import { INewsAPI } from '../../types';
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import { Admin } from '../Admin/Admin';
 import { PageLayout } from '../PageLayout/PageLayout';
+import { AdminPage } from '../AdminPage/AdminPage';
+import { AdminArticles } from '../AdminArticles/AdminArticles';
+import { AdminArticleItem } from '../AdminArticleItem/AdminArticleItem';
 
 export const App = () => {
   const [category, setCategory] = React.useState<string>('index');
@@ -90,7 +92,30 @@ export const App = () => {
             </PageLayout>
           }
         />
-        <Route path={'admin'} element={<Admin />} />
+        <Route
+          path={'admin'}
+          element={
+            <AdminPage>
+              <AdminArticles />
+            </AdminPage>
+          }
+        />
+        <Route
+          path={'admin/create'}
+          element={
+            <AdminPage>
+              <AdminArticleItem />
+            </AdminPage>
+          }
+        />
+        <Route
+          path={'admin/edit/:id'}
+          element={
+            <AdminPage>
+              <AdminArticleItem />
+            </AdminPage>
+          }
+        />
       </Routes>
     </>
   );
