@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { CardContent, CardMedia, Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
@@ -9,7 +8,6 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 
-const drawerWidth = 300;
 const style = {
   position: 'absolute',
   top: '50%',
@@ -29,7 +27,7 @@ export const AdminArticleItem: FC = () => {
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="h4" gutterBottom>
-        Сохранить статью
+        {id ? 'Редактировать статью' : 'Создать статью'}
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={6}>
@@ -43,11 +41,13 @@ export const AdminArticleItem: FC = () => {
                 Сохранить
               </Button>
             </Grid>
-            <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button variant={'contained'} color={'error'} onClick={handleOpen}>
-                Удалить
-              </Button>
-            </Grid>
+            {id && (
+              <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button variant={'contained'} color={'error'} onClick={handleOpen}>
+                  Удалить
+                </Button>
+              </Grid>
+            )}
           </Grid>
         </Grid>
         <Grid item xs={6}>

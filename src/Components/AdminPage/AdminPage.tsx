@@ -11,6 +11,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 300;
 
@@ -44,7 +45,7 @@ export const AdminPage: FC<IProps> = ({ children }) => {
         <Box sx={{ overflow: 'auto' }}>
           <List>
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton component={Link} to={'/admin'}>
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
