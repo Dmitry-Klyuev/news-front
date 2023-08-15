@@ -26,10 +26,15 @@ export const AdminPage: FC<IProps> = ({ children }) => {
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6" noWrap component="div">
-            Админ панель
+            <ListItemButton component={Link} to={'/admin'}>
+              Админ панель
+            </ListItemButton>
           </Typography>
+
           <Typography variant="h6" noWrap component="div">
-            Выход
+            <ListItemButton component={Link} to={'/index'}>
+              Выход
+            </ListItemButton>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -55,10 +60,12 @@ export const AdminPage: FC<IProps> = ({ children }) => {
           </List>
         </Box>
       </Drawer>
+      ; ;
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         {children}
       </Box>
+      ; ;
     </Box>
   );
 };

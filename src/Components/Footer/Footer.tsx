@@ -12,9 +12,9 @@ export const Footer: React.FC<iProps> = ({ category }) => {
     <footer className="footer">
       <div className="container grid">
         <nav className="navigation">
-          <a href="/" className="navigation__logo">
+          <Link to={'/index'} className="navigation__logo">
             <img src={logo_footer} alt="logo" />
-          </a>
+          </Link>
           <ul className="navigation__list">
             {['index', 'fashion', 'technologies', 'sport', 'other'].map((el) => {
               return (

@@ -12,7 +12,7 @@ export const Header: React.FC<IProps> = ({ category }) => {
     <header className="header">
       <div className="container grid">
         <nav className="navigation">
-          <Link to={'./'} className="navigation__logo">
+          <Link to={'/index'} className="navigation__logo">
             <img src={logo} alt="logo" />
           </Link>
           <ul className="navigation__list">
